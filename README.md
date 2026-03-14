@@ -47,11 +47,7 @@ Since the app contains static assets (images), rebuild the frontend assets:
 bench build
 ```
 
-This step ensures the images become accessible through:
 
-```
-/assets/one_brand/images/
-```
 
 ---
 
@@ -91,32 +87,3 @@ bench restart
 ```
 
 ---
-
-## Troubleshooting
-
-### Image shows 404
-
-Run:
-
-```
-bench build
-bench restart
-```
-
-and ensure images exist in:
-
-```
-apps/one_brand/one_brand/public/images
-```
-
-### Setup command not applied
-
-Run again:
-
-```
-bench --site yoursite execute one_brand.install.setup_entry_portal
-```
-
----
-
-**ONE BRAND** provides a centralized configuration for logos, mobile app links, and branding elements used in the Entry Portal.
