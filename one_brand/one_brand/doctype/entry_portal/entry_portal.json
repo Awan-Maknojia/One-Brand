@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-11 13:33:56.834981",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_page",
+  "branding__cubezixone_section",
+  "logo",
+  "mobile_app_section",
+  "ios_logo",
+  "ios_app_link",
+  "one_liner_message",
+  "column_break_jkkl",
+  "android_logo",
+  "android_app_link",
+  "client_info_section",
+  "client_logo",
+  "client_name",
+  "column_break_ptem",
+  "background",
+  "client_color"
+ ],
+ "fields": [
+  {
+   "fieldname": "branding__cubezixone_section",
+   "fieldtype": "Section Break",
+   "label": "CubeZixOne"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "description": "50 X 70",
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "cubezixone logo"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "description": "30 X 30",
+   "fieldname": "ios_logo",
+   "fieldtype": "Attach",
+   "label": " IOS Logo"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "description": "30 X 30",
+   "fieldname": "android_logo",
+   "fieldtype": "Attach",
+   "label": "Android Logo"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "fieldname": "one_liner_message",
+   "fieldtype": "Data",
+   "label": "One Liner Message "
+  },
+  {
+   "depends_on": "eval:doc.ios_logo",
+   "fieldname": "ios_app_link",
+   "fieldtype": "Data",
+   "label": "IOS App Link"
+  },
+  {
+   "depends_on": "eval:doc.android_logo",
+   "fieldname": "android_app_link",
+   "fieldtype": "Data",
+   "label": "Android App Link"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "fieldname": "mobile_app_section",
+   "fieldtype": "Section Break",
+   "label": "Mobile App"
+  },
+  {
+   "fieldname": "column_break_jkkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "fieldname": "client_info_section",
+   "fieldtype": "Section Break",
+   "label": "Client Info"
+  },
+  {
+   "depends_on": "eval:doc.enable_page",
+   "description": "50 X 70",
+   "fieldname": "client_logo",
+   "fieldtype": "Attach",
+   "label": "Client Logo"
+  },
+  {
+   "fieldname": "column_break_ptem",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.client_logo",
+   "description": "555 X 600",
+   "fieldname": "background",
+   "fieldtype": "Attach",
+   "label": "Background"
+  },
+  {
+   "depends_on": "eval:doc.client_logo",
+   "fieldname": "client_name",
+   "fieldtype": "Data",
+   "label": "Client Name"
+  },
+  {
+   "depends_on": "eval:doc.client_logo",
+   "fieldname": "client_color",
+   "fieldtype": "Color",
+   "label": "Client Color"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_page",
+   "fieldtype": "Check",
+   "label": "Enable Page"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-11 14:47:26.799032",
+ "modified_by": "Administrator",
+ "module": "ONE BRAND",
+ "name": "Entry Portal",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

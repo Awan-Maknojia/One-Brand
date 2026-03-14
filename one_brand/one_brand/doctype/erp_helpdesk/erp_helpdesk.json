@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "ERP-EH-.####",
+ "creation": "2026-03-12 11:48:45.980645",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creator",
+  "creator_email",
+  "department",
+  "column_break_ythj",
+  "date",
+  "priority",
+  "issue_related",
+  "column_break_xvwp",
+  "full_name",
+  "status",
+  "support_type",
+  "section_break_fjnn",
+  "subject",
+  "description"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Module",
+   "options": "\nAccounts\nAssets\nBuying\nCRM\nHR\nManufacturing\nProjects\nSelling\nStock\nEmail",
+   "read_only_depends_on": "eval:doc.status == \"Completed\"",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.issue_related",
+   "fieldname": "support_type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Support Type",
+   "mandatory_depends_on": "eval:doc.issue_related",
+   "options": "\nUser Permission\nTechnical\nPrint Format\nDocument\nOthers",
+   "read_only_depends_on": "eval:doc.status == \"Completed\""
+  },
+  {
+   "fetch_from": "creator.full_name",
+   "fieldname": "full_name",
+   "fieldtype": "Read Only",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nNot Possible\nCancelled\nCompleted"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh",
+   "read_only_depends_on": "eval:doc.status == \"Completed\"",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.department",
+   "fieldname": "issue_related",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Issue Related",
+   "link_filters": "[[\"DocType\",\"module\",\"=\",\"eval: doc.department\"]]",
+   "options": "DocType"
+  },
+  {
+   "default": "User",
+   "fieldname": "creator",
+   "fieldtype": "Link",
+   "label": "Creator",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_ythj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xvwp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fjnn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Small Text",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fetch_from": "creator.email",
+   "fieldname": "creator_email",
+   "fieldtype": "Read Only",
+   "label": "Creator Email"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-13 09:03:41.609927",
+ "modified_by": "Administrator",
+ "module": "ONE BRAND",
+ "name": "ERP Helpdesk",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -21,6 +21,17 @@ app_license = "mit"
 # 	}
 # ]
 
+#Login Page Redierct
+# website_route_rules = []
+# try:
+#     enabled = frappe.db.get_single_value("Entry Portal", "enable")
+#     if enabled == 1:
+#         website_route_rules = [
+#             {"from_route": "/login", "to_route": "/login"},
+#         ]
+# except Exception:
+#     pass
+
 # Includes in <head>
 # ------------------
 
@@ -246,4 +257,10 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
+
+# fixtures = [
+#     {
+#         "dt":"Entry Portal"
+#     }
+# ]
 
