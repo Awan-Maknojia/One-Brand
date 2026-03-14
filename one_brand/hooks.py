@@ -9,7 +9,9 @@ app_license = "mit"
 # ------------------
 
 # required_apps = []
-
+# website_route_rules = [
+# 	{"from_route": "/login", "to_route": "/my-login"},
+# ]
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
