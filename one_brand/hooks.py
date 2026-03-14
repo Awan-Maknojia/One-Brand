@@ -258,6 +258,9 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+after_install = "one_brand.install.setup_entry_portal"
+
+
 fixtures = [
     {
         "dt":"Entry Portal"
