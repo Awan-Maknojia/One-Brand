@@ -1,33 +1,127 @@
-### ONE BRAND
+# ONE BRAND – Installation Guide
 
-ONE BRAND is for the UI of the ERP
+This guide explains how to install the **ONE BRAND** app and apply the default branding images for the **Entry Portal** DocType.
 
-### Installation
+---
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+## 1. Install the App
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app one_brand
+From your bench directory, install the app on your site:
+
+```
+bench --site yoursite install-app one_brand
 ```
 
-### Contributing
+Replace **`yoursite`** with your actual site name.
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+Example:
 
-```bash
-cd apps/one_brand
-pre-commit install
+```
+bench --site site1.local install-app one_brand
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+---
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+## 2. Apply Default Branding Configuration
 
-### License
+After installing the app, run the setup function to populate the **Entry Portal** Single DocType with the default images.
 
-mit
+```
+bench --site yoursite execute one_brand.install.setup_entry_portal
+```
+
+This command will automatically set the following image paths:
+
+* `/assets/one_brand/images/cubezixone.png`
+* `/assets/one_brand/images/appstore.png`
+* `/assets/one_brand/images/playstore.png`
+
+These images are located in:
+
+```
+apps/one_brand/one_brand/public/images/
+```
+
+---
+
+## 3. Build Assets
+
+Since the app contains static assets (images), rebuild the frontend assets:
+
+```
+bench build
+```
+
+This step ensures the images become accessible through:
+
+```
+/assets/one_brand/images/
+```
+
+---
+
+## 4. Restart Bench
+
+Restart bench to apply all changes:
+
+```
+bench restart
+```
+
+---
+
+## 5. Verify Installation
+
+Open your site in the browser and verify that the branding images load correctly.
+
+Example test URL:
+
+```
+http://localhost:8000/assets/one_brand/images/cubezixone.png
+```
+
+If the image loads, the installation is successful.
+
+---
+
+## Notes
+
+* The **Entry Portal** DocType is a **Single DocType** used for managing branding settings.
+* Default images are bundled with the app and served via the **Frappe assets system**.
+* If you change images inside the `public/images` folder later, you must run:
+
+```
+bench build
+bench restart
+```
+
+---
+
+## Troubleshooting
+
+### Image shows 404
+
+Run:
+
+```
+bench build
+bench restart
+```
+
+and ensure images exist in:
+
+```
+apps/one_brand/one_brand/public/images
+```
+
+### Setup command not applied
+
+Run again:
+
+```
+bench --site yoursite execute one_brand.install.setup_entry_portal
+```
+
+---
+
+**ONE BRAND** provides a centralized configuration for logos, mobile app links, and branding elements used in the Entry Portal.
