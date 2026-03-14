@@ -30,11 +30,6 @@ After installing the app, run the setup function to populate the **Entry Portal*
 bench --site yoursite execute one_brand.install.setup_entry_portal
 ```
 
-This command will automatically set the following image paths:
-
-* `/assets/one_brand/images/cubezixone.png`
-* `/assets/one_brand/images/appstore.png`
-* `/assets/one_brand/images/playstore.png`
 
 These images are located in:
 
@@ -77,7 +72,7 @@ Open your site in the browser and verify that the branding images load correctly
 Example test URL:
 
 ```
-http://localhost:8000/assets/one_brand/images/cubezixone.png
+http://localhost:8000/assets/one_brand/images/image.png
 ```
 
 If the image loads, the installation is successful.
