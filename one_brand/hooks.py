@@ -26,7 +26,7 @@ app_license = "mit"
 #Login Page Redierct
 # website_route_rules = []
 # try:
-#     enabled = frappe.db.get_single_value("Entry Portal", "enable")
+#     enabled = frappe.db.get_single_value("Entry Portal", "enable_page")
 #     if enabled == 1:
 #         website_route_rules = [
 #             {"from_route": "/login", "to_route": "/login"},

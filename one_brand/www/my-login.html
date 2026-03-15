@@ -1,0 +1,366 @@
+{% extends "templates/web.html" %}
+
+{% macro email_login_body() -%}
+<div class="page-card-body persnolDetail" style="margin-bottom: 0px;">
+    <div class="form-group partOne">
+        <div class="email-field inputBox">
+            <input type="text" id="login_email" class="form-control"
+            placeholder="{% if login_name_placeholder %}{{ login_name_placeholder  }}{% else %}{{ _('john@cubezix.com') }}{% endif %}"
+            required autofocus autocomplete="username">
+        </div>
+        <div class="password-field inputBox">
+            <input type="password" id="login_password" class="form-control" placeholder="•••••"
+            autocomplete="current-password" required>
+
+            <!-- <svg class="field-icon password-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                    <use class="es-lock" href="#es-line-lock"></use>
+            </svg>
+            <span toggle="#login_password" class="toggle-password text-muted">{{ _('Show') }}</span> -->
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% block head_include %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{{ include_style('login.bundle.css') }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+<style>
+body {
+    color: black;
+    height: 615px;
+    margin: 0;
+    padding: 32px 0;
+    font-family: 'Poppins', sans-serif;
+}
+.img34{
+        /* height: 100px; */
+        width: 60px;
+        display: flex;
+        margin: 20px auto;
+    }
+    .containerer {
+        width: 90%;
+        padding-left: 0;
+        margin: 0 auto;
+        padding-right: 0;
+        border-radius: 10px;
+        display: flex;
+    }
+.bg{
+    width: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    backdrop-filter: blur(5px);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.logo {
+    width: 100%;
+    padding: 0 30px;
+    background: #ac27f1;
+    border-radius: 10px 0px 0px 10px;
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text , .text2{
+    height: fit-content;
+    width: 100%;
+    position: relative;
+}
+
+.text2{
+    display: grid;
+    top: 40%;
+}
+
+.text2 ul{
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: auto 0;
+    color:white;
+}
+
+.text2 ul li{
+    margin: auto 0;
+    font-size: 0.8em;
+}
+
+.text h1,h3,p, h2{
+    color: white;
+}
+
+.text h1,h3{
+    font-weight: 600;
+}
+
+.text p{
+    font-size:14px;
+}
+
+.logo-img {
+    height: fit-content;
+    width: 30%;
+}
+
+
+#registrationForm{
+    width: 50%;
+    height: auto;
+    border-radius: 0px 10px 10px 0;
+    padding: 40px 10px;
+    margin: auto;
+}
+
+.img-fluid{
+    height: auto;
+    width: auto; 
+}
+
+.persnolDetail{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.partOne{
+    width: 100%;
+    position: relative;
+    padding: 0px 5px;
+}
+
+.inputBox{
+    margin: 0 auto !important;
+    background: #FAFAFA;
+    padding: 8.5px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    margin: 20px auto !important;
+    position: relative !important;
+    width: 60% !important;
+}
+
+.inputBox input{
+    color: black !important;
+    margin: 7.5px 0 !important;
+    outline: none !important;
+    padding: 10px 10px !important;
+    background: #FAFAFA !important;
+    border: none !important;
+    border-radius: 10px !important;
+    width: 100% !important;
+    font-size: medium !important;
+}
+
+
+.bttn{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    margin-top: 20px;
+}
+.btn.btn-primary{
+    background: #ac27f1 !important;
+    /* color:  rgb(38,103,238,0.9) !important; */
+
+}
+.btn-block{
+    width: 150px;
+    height: 30px;
+    color: white;
+    font-weight: bolder;
+    border-radius: 10px;
+    background-color: #7713ff !important;
+}
+
+.btn-block:hover{
+    background-color: #ac27f1 !important;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icons div{
+    height: 40px;
+    width: 40px;
+    /* background: rgba(206, 206, 206, 0.568); */
+	background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 18px;
+}
+
+.icons div img{
+    height: 30px;
+    width: 30px;
+}
+
+.txt p{
+    color: black;
+    font-size: small;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* responsive Designs */
+
+@media only screen and (max-width: 800px) {
+    body{
+        display: flex;
+        height: fit-content;
+    }
+    .containerer{
+        display: inline-block;
+    }
+    .bg{
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0px 0px;
+        background-color: #ac27f1;
+    }
+    .logo{
+        height: auto;
+        padding: 30px 0;
+        border-radius: 10px 10px 0px 0px;
+        padding: 20px 30px;
+        gap: 30px;
+    }
+    #registrationForm{
+        width: 100%;
+        height: auto;
+        border-radius: 0px 0px 10px 10px;
+        padding: 0 0;
+    }
+    
+    .persnolDetail{
+        display: inline-block;
+        height: auto;
+        margin: 0;
+    }
+    .partOne{
+        width: 100%;
+    }
+    .inputBox{
+        width: 90%;
+        margin: 10px 5%;
+    }
+}
+.page_content{
+    width: 100%;
+}
+.navbar{
+    display: None;
+}
+
+.img34 {
+    margin: 55px auto;
+    display: flex;
+}
+
+
+</style>
+{% endblock %}
+
+
+{% macro logo_section(title=null) %}
+<div class="page-card-head">
+	<img class="app-logo" src="{{ logo }}">
+	{% if title %}
+	    <!-- <h4>{{ _(title)}}</h4> -->
+	{% else %}
+	<!-- <h4>{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4> -->
+	{% endif %}
+</div>
+{% endmacro %}
+
+
+{% block page_content %}
+	<noscript>
+		<div class="text-center my-5">
+			<h4>{{ _("Javascript is disabled on your browser") }}</h4>
+			<p class="text-muted">
+				{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
+		</div>
+	</noscript>
+<section class='for-login'>
+    <div style="display: flex; justify-content: center; align-items: center; height: 90vh">
+        <div class="containerer" style="background-color: #FFFFFF;">
+            <div class="bg">
+                <div class="logo">
+                    <!-- <div class="logo-img">
+                        <img src="{{ frappe.db.get_single_value("Entry Portal", "logo") }}" alt="Logo" class="img-fluid">
+                    </div> -->
+                 
+                </div>
+                <img alt="Watermark" src="{{ frappe.db.get_single_value("Entry Portal", "background") }}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 99%; height: 99%;">
+            </div>
+            <!-- <form id="registrationForm"> -->
+                <form class="form-signin form-login " role="form" id="registrationForm" style="background-color: #FFFFFF;">
+                    <img src="{{ frappe.db.get_single_value("Entry Portal", "client_logo") }}" class="img34" >
+                    {{ email_login_body() }}
+
+                    <div class="bttn form-signin form-login" style="margin-top: 0px;">
+                        <button class="btn btn-sm btn-primary btn-block btn-login" type="submit">{{ _("Sign In") }}</button>
+                    </div>
+                    {%- if social_login or login_with_email_link -%}
+                    <div class="social-logins text-center">
+                        <p class="text-muted login-divider bttn">{{ _("or") }}</p>
+                        <div class="social-login-buttons">
+							{% for provider in provider_logins %}
+							<div class="login-button-wrapper bttn" style=" background-color: white  !important;">
+								<a href="{{ provider.auth_url }}" class="btn btn-primary btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}"
+                                        style="width: 100%;">
+									{% if provider.icon %}
+										{{ provider.icon }}
+									{% endif %}
+									{{ _("Login With {0}").format(provider.provider_name) }}
+                                </a>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+                    {% endif %}
+                    <div class="icons" style="margin-top:30px;">
+                       <div class="google">
+                            <a href="{{ frappe.db.get_single_value("Entry Portal", "android_app_link") }}" target="_blank">
+                                <img src="{{ frappe.db.get_single_value("Entry Portal", "android_logo") }}" alt="Google &quot;G&quot; logo.svg" height="24" width="24"></a>
+                        </div>
+
+                             <div class="apple">    
+                            <a href="{{ frappe.db.get_single_value("Entry Portal", "ios_app_link") }}" target="_blank">
+                                <img src="{{ frappe.db.get_single_value("Entry Portal", "ios_logo") }}" alt="Google &quot;G&quot; logo.svg" height="24" width="24">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="txt" style="margin-top:30px;">
+                        <p>{{ frappe.db.get_single_value("Entry Portal", "one_liner_message") }}</p>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}
+
+{% block script %}
+    <script>{% include "templates/includes/login/login.js" %}</script>
+{% endblock %}
