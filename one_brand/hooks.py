@@ -7,11 +7,7 @@ app_license = "mit"
 
 # Apps
 # ------------------
-
 # required_apps = []
-# website_route_rules = [
-# 	{"from_route": "/login", "to_route": "/my-login"},
-# ]
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
@@ -22,17 +18,6 @@ app_license = "mit"
 # 		"has_permission": "one_brand.api.permission.has_app_permission"
 # 	}
 # ]
-
-#Login Page Redierct
-# website_route_rules = []
-# try:
-#     enabled = frappe.db.get_single_value("Entry Portal", "enable_page")
-#     if enabled == 1:
-#         website_route_rules = [
-#             {"from_route": "/login", "to_route": "/login"},
-#         ]
-# except Exception:
-#     pass
 
 # Includes in <head>
 # ------------------
@@ -259,13 +244,21 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
+#images for the app of login page
 after_install = "one_brand.install.setup_entry_portal"
-
-
+#fixtures for the app
 fixtures = [
     {
         "dt":"Entry Portal"
     }
 ]
 
+website_route_rules = []
+try:
+    enabled = frappe.db.get_single_value("Entry Portal", "enable")
+    if enabled == 1 :
+        website_route_rules = [
+            {"from_route": "/login", "to_route": "/login"},
+        ]
+except Exception:
+    pass

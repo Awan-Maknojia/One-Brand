@@ -64,7 +64,7 @@ body {
 .logo {
     width: 100%;
     padding: 0 30px;
-    background: #ac27f1;
+    background:     var(--client-color);;
     border-radius: 10px 0px 0px 10px;
     display: grid;
     align-items: center;
@@ -173,7 +173,7 @@ body {
     margin-top: 20px;
 }
 .btn.btn-primary{
-    background: #ac27f1 !important;
+    background: var(--client-color) !important;
     /* color:  rgb(38,103,238,0.9) !important; */
 
 }
@@ -183,11 +183,11 @@ body {
     color: white;
     font-weight: bolder;
     border-radius: 10px;
-    background-color: #7713ff !important;
+    background-color: var(--client-color) !important;
 }
 
 .btn-block:hover{
-    background-color: #ac27f1 !important;
+    background-color: var(--client-color) !important;
 }
 
 .icons{
@@ -219,7 +219,10 @@ body {
     text-align: center;
     margin: 10px 0;
 }
-
+.welcome-line {
+    color: var(--client-color) !important;
+    font-weight: 800;
+}
 /* responsive Designs */
 
 @media only screen and (max-width: 800px) {
@@ -234,7 +237,7 @@ body {
         width: 100%;
         height: auto;
         border-radius: 10px 10px 0px 0px;
-        background-color: #ac27f1;
+        background-color: var(--client-color);
     }
     .logo{
         height: auto;
@@ -274,7 +277,9 @@ body {
     margin: 55px auto;
     display: flex;
 }
-
+:root {
+    --client-color: {{ frappe.db.get_single_value("Entry Portal", "client_color") }};
+}
 
 </style>
 {% endblock %}
@@ -310,13 +315,20 @@ body {
                     </div> -->
                  
                 </div>
-                <img alt="Watermark" src="{{ frappe.db.get_single_value("Entry Portal", "background") }}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 99%; height: 99%;">
+                               <img alt="Watermark" src="{{ frappe.db.get_single_value("Entry Portal", "background") }}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 99%; height: 99%;">
+
             </div>
             <!-- <form id="registrationForm"> -->
                 <form class="form-signin form-login " role="form" id="registrationForm" style="background-color: #FFFFFF;">
                     <img src="{{ frappe.db.get_single_value("Entry Portal", "client_logo") }}" class="img34" >
-                    {{ email_login_body() }}
 
+                          <div style="text-align:center;">
+                    <span class="welcome-line">
+                        {{ frappe.db.get_single_value("Entry Portal", "client_name") }}
+                    </span>
+                </div>
+                    {{ email_login_body() }}
+             
                     <div class="bttn form-signin form-login" style="margin-top: 0px;">
                         <button class="btn btn-sm btn-primary btn-block btn-login" type="submit">{{ _("Sign In") }}</button>
                     </div>
@@ -356,7 +368,8 @@ body {
             </form>
         </div>
     </div>
-
+<div>
+</div>
 
 </section>
 {% endblock %}

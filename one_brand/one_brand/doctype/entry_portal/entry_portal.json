@@ -5,7 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "enable_page",
+  "enable",
   "branding__cubezixone_section",
   "logo",
   "mobile_app_section",
@@ -23,8 +23,8 @@
   "client_color",
   "support_tab",
   "whatapps_section",
-  "support_number",
-  "column_break_rzec",
+  "support",
+  "column_break_nlbb",
   "support_message"
  ],
  "fields": [
@@ -34,28 +34,28 @@
    "label": "CubeZixOne"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "description": "50 X 70",
    "fieldname": "logo",
    "fieldtype": "Attach Image",
    "label": "cubezixone logo"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "description": "30 X 30",
    "fieldname": "ios_logo",
    "fieldtype": "Attach",
    "label": " IOS Logo"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "description": "30 X 30",
    "fieldname": "android_logo",
    "fieldtype": "Attach",
    "label": "Android Logo"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "fieldname": "one_liner_message",
    "fieldtype": "Data",
    "label": "One Liner Message "
@@ -73,7 +73,7 @@
    "label": "Android App Link"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "fieldname": "mobile_app_section",
    "fieldtype": "Section Break",
    "label": "Mobile App"
@@ -83,13 +83,13 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "fieldname": "client_info_section",
    "fieldtype": "Section Break",
    "label": "Client Info"
   },
   {
-   "depends_on": "eval:doc.enable_page",
+   "depends_on": "eval:doc.enable",
    "description": "50 X 70",
    "fieldname": "client_logo",
    "fieldtype": "Attach",
@@ -119,16 +119,26 @@
    "label": "Client Color"
   },
   {
-   "default": "0",
-   "fieldname": "enable_page",
-   "fieldtype": "Check",
-   "label": "Enable Page"
-  },
-  {
+   "depends_on": "eval: doc.enable == \"1\"",
    "fieldname": "support_tab",
    "fieldtype": "Tab Break",
-   "label": "Support",
-   "mandatory_depends_on": "eval:doc.enable_page"
+   "label": "Support"
+  },
+  {
+   "fieldname": "support",
+   "fieldtype": "Phone",
+   "label": "Support ",
+   "mandatory_depends_on": "eval: doc.enable == \"1\""
+  },
+  {
+   "fieldname": "column_break_nlbb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "support_message",
+   "fieldtype": "Small Text",
+   "label": "Support Message",
+   "mandatory_depends_on": "eval: doc.support"
   },
   {
    "fieldname": "whatapps_section",
@@ -136,29 +146,17 @@
    "label": "Whatapps"
   },
   {
-   "depends_on": "eval:doc.enable_page",
-   "fieldname": "support_number",
-   "fieldtype": "Phone",
-   "label": "Support Number",
-   "mandatory_depends_on": "eval:doc.enable_page"
-  },
-  {
-   "fieldname": "column_break_rzec",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval: doc.support_number",
-   "fieldname": "support_message",
-   "fieldtype": "Small Text",
-   "label": "Support Message",
-   "mandatory_depends_on": "eval: doc.support_number"
+   "default": "0",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Enable"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-03-14 12:39:35.684700",
+ "modified": "2026-03-15 14:49:18.036204",
  "modified_by": "Administrator",
  "module": "ONE BRAND",
  "name": "Entry Portal",
