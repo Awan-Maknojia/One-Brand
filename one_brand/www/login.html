@@ -219,9 +219,14 @@ body {
     text-align: center;
     margin: 10px 0;
 }
-.welcome-line {
-    color: var(--client-color) !important;
+.welcome-line{
+    font-size: 20px;
+    color: var(--client-color);
+    height: 28px;        /* fixed height */
+    line-height: 28px;
+    overflow: hidden;    /* prevents expansion */
     font-weight: 800;
+    text-align: center;
 }
 #registrationForm {
     width: 50%;
@@ -329,11 +334,9 @@ body {
                 <form class="form-signin form-login " role="form" id="registrationForm" style="background-color: #FFFFFF;">
                     <img src="{{ frappe.db.get_single_value("Entry Portal", "client_logo") }}" class="img34" >
 
-                          <div style="text-align:center;">
-                    <span class="welcome-line">
+                    <div class="welcome-line">
                         {{ frappe.db.get_single_value("Entry Portal", "client_name") }}
-                    </span>
-                </div>
+                    </div>
                     {{ email_login_body() }}
              
                     <div class="bttn form-signin form-login" style="margin-top: 0px;">
