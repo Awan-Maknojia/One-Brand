@@ -252,13 +252,3 @@ fixtures = [
         "dt":"Entry Portal"
     }
 ]
-
-website_route_rules = []
-try:
-    enabled = frappe.db.get_single_value("Entry Portal", "enable")
-    if enabled == 1 :
-        website_route_rules = [
-            {"from_route": "/login", "to_route": "/login"},
-        ]
-except Exception:
-    pass
