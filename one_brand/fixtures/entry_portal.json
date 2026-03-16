@@ -1,19 +1,21 @@
 [
  {
   "android_app_link": null,
-  "android_logo": "/files/playstore.png",
+  "android_logo": "/assets/one_brand/images/playstore.png",
   "background": null,
   "client_color": null,
   "client_logo": null,
   "client_name": null,
   "docstatus": 0,
   "doctype": "Entry Portal",
-  "enable_page": 1,
+  "enable": 1,
   "ios_app_link": null,
-  "ios_logo": "/files/appstore.png",
-  "logo": "/files/cubezixone.png",
-  "modified": "2026-03-14 10:31:24.858981",
+  "ios_logo": "/assets/one_brand/images/appstore.png",
+  "logo": "/assets/one_brand/images/cubezixone.png",
+  "modified": "2026-03-16 13:39:17.540806",
   "name": "Entry Portal",
-  "one_liner_message": "Available for both Android and IOS platforms."
+  "one_liner_message": "Available for both Android and IOS platforms.",
+  "support": "+971-0502569164",
+  "support_message": "Hi"
  }
 ]
