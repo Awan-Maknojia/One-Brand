@@ -367,9 +367,9 @@
             <form class="form-signin form-login " role="form" id="registrationForm" style="background-color: #FFFFFF;">
                 <img src="{{ frappe.db.get_single_value(" Entry Portal", "client_logo" ) }}" class="img34">
 
-                <div class="welcome-line">
+                <!-- <div class="welcome-line">
                     {{ frappe.db.get_single_value("Entry Portal", "client_name") }}
-                </div>
+                </div> -->
                 {{ email_login_body() }}
 
                 <div class="bttn form-signin form-login" style="margin-top: 0px;">
