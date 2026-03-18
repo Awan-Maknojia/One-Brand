@@ -252,3 +252,8 @@ fixtures = [
         "dt":"Entry Portal"
     }
 ]
+
+website_route_rules = [
+	{"from_route": "/login", "to_route": "/my-login"},
+]
+

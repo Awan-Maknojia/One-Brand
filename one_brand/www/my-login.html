@@ -359,17 +359,17 @@
                     </div> -->
 
                 </div>
-                <img alt="Watermark" src="{{ frappe.db.get_single_value(" Entry Portal", "background" ) }}"
+                <img alt="Watermark" src="{{ frappe.db.get_single_value("Entry Portal", "background" ) }}"
                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 99%; height: 99%;">
 
             </div>
             <!-- <form id="registrationForm"> -->
             <form class="form-signin form-login " role="form" id="registrationForm" style="background-color: #FFFFFF;">
-                <img src="{{ frappe.db.get_single_value(" Entry Portal", "client_logo" ) }}" class="img34">
+                <img src="{{ frappe.db.get_single_value("Entry Portal", "client_logo" ) }}" class="img34">
 
-                <!-- <div class="welcome-line">
+                <div class="welcome-line">
                     {{ frappe.db.get_single_value("Entry Portal", "client_name") }}
-                </div> -->
+                </div>
                 {{ email_login_body() }}
 
                 <div class="bttn form-signin form-login" style="margin-top: 0px;">
@@ -396,15 +396,15 @@
                 {% endif %}
                 <div class="icons" style="margin-top:30px;">
                     <div class="google">
-                        <a href="{{ frappe.db.get_single_value(" Entry Portal", "android_app_link" ) }}"
+                        <a href="{{ frappe.db.get_single_value("Entry Portal", "android_app_link" ) }}"
                             target="_blank">
-                            <img src="{{ frappe.db.get_single_value(" Entry Portal", "android_logo" ) }}"
+                            <img src="{{ frappe.db.get_single_value("Entry Portal", "android_logo" ) }}"
                                 alt="Google &quot;G&quot; logo.svg" height="24" width="24"></a>
                     </div>
 
                     <div class="apple">
-                        <a href="{{ frappe.db.get_single_value(" Entry Portal", "ios_app_link" ) }}" target="_blank">
-                            <img src="{{ frappe.db.get_single_value(" Entry Portal", "ios_logo" ) }}"
+                        <a href="{{ frappe.db.get_single_value("Entry Portal", "ios_app_link" ) }}" target="_blank">
+                            <img src="{{ frappe.db.get_single_value("Entry Portal", "ios_logo" ) }}"
                                 alt="Google &quot;G&quot; logo.svg" height="24" width="24">
                         </a>
                     </div>

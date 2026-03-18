@@ -1,3 +1,7 @@
+# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
+# License: MIT. See LICENSE
+
+
 from urllib.parse import urljoin, urlparse
 
 import frappe
@@ -37,7 +41,7 @@ def get_context(context):
 			raise frappe.Redirect
 
 	context.no_header = True
-	context.for_test = "my-login.html"
+	context.for_test = "login.html"
 	context["title"] = "Login"
 	context["hide_login"] = True  # dont show login link on login page again.
 	context["provider_logins"] = []
@@ -48,7 +52,6 @@ def get_context(context):
 	context["app_name"] = (
 		frappe.get_website_settings("app_name") or frappe.get_system_settings("app_name") or _("Frappe")
 	)
-	
 
 	signup_form_template = frappe.get_hooks("signup_form_template")
 	if signup_form_template and len(signup_form_template):
