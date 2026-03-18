@@ -68,7 +68,6 @@
         width: 100%;
         padding: 0 30px;
         background: var(--client-color);
-        ;
         border-radius: 10px 0px 0px 10px;
         display: grid;
         align-items: center;
@@ -314,15 +313,9 @@
         display: flex;
     }
 
-    :root {
-        --client-color: {
-                {
-                frappe.db.get_single_value("Entry Portal", "client_color")
-            }
-        }
-
-        ;
-    }
+ :root {
+    --client-color: {{ frappe.db.get_single_value("Entry Portal", "client_color") }};
+}
 </style>
 {% endblock %}
 
